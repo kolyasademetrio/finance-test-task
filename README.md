@@ -94,3 +94,6 @@ The tickers we use:
 3. Modify content of the folder `server` - if you want to complete bonus tasks
 4. Commit and push your code to your repository
 5. Send us link to your repository
+
+
+Please use Node.js v16.16.0
