@@ -1,0 +1,3 @@
+export const SET_PRICES = 'SET_PRICES';
+export const SET_PRICES_HISTORY = 'SET_PRICES_HISTORY';
+export const SET_PRICES_FILTER = 'SET_PRICES_FILTER';

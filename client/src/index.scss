@@ -1,0 +1,244 @@
+ /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+   font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$grey: #dadce0;
+$grey-light: #f8f9fa;
+$grey-dark: #ccc;
+$black: #000;
+$green: #137333;
+$red: #a50e0e;
+
+@mixin flexbox($pos: center) {
+   display: flex;
+   justify-content: $pos;
+}
+
+.title {
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: bold;
+   padding: 2rem 0;
+}
+
+.section {
+   padding: 2rem 0;
+}
+
+.container {
+   max-width: 1600px;
+   margin: 0 auto;
+   @include flexbox();
+}
+
+.prices {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   flex-wrap: wrap;
+   font-size: 1rem;
+   line-height: 1;
+
+   &__item {
+      margin: 1rem;
+      flex: 1;
+   }
+
+   &__link {
+      text-decoration: none;
+      color: $black;
+   }
+
+   &__itemInner {
+      padding: 0.5rem;
+      border: 1px solid $grey;
+      border-radius: .6rem;
+      @include flexbox('start');
+
+      &:hover {
+         background-color: $grey-light;
+         cursor: pointer;
+      }
+   }
+
+   &__itemInfo {
+      padding: 0 0.8rem 0 0;
+
+      &.m-secondary {
+         padding-right: 0;
+         padding-left: 2rem;
+      }
+   }
+
+   &__badge {
+      padding: .18rem;
+      width: 2rem;
+      height: 2rem;
+      @include flexbox();
+      align-items: center;
+      background-color: $grey-dark;
+      border-radius: .6rem;
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: bold;
+
+      &.m-primary {
+         background-color: rgba($green, .1);
+
+         .prices__badgeSvg {
+            fill: $green;
+         }
+      }
+
+      &.m-secondary {
+         background-color: rgba($red, .1);
+
+         .prices__badgeSvg {
+            fill: $red;
+         }
+      }
+   }
+
+   &__title {
+      font-weight: bold;
+      margin: 0 0 0.3rem;
+   }
+
+   &__priceValue {
+      &.m-secondary {
+         padding-top: 0.2rem;
+         font-size: 80%;
+      }
+   }
+
+   &__percent {
+      min-width: 4rem;
+
+      &.m-secondary {
+         background-color: $grey-dark;
+         height: 1.2rem;
+      }
+   }
+}
+
+.loader {
+   display: inline-block;
+   position: relative;
+   width: 40px;
+   height: 40px;
+
+   &__item {
+      display: inline-block;
+      position: absolute;
+      left: 4px;
+      width: 8px;
+      background: $grey-dark;
+      animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+
+      &.m-primary {
+         left: 4px;
+         animation-delay: -0.24s;
+      }
+
+      &.m-secondary {
+         left: 16px;
+         animation-delay: -0.12s;
+      }
+
+      &.m-tertiary {
+         left: 28px;
+         animation-delay: 0;
+      }
+   }
+ }
+
+ .graph {
+   width: 80%;
+ }
+
+ .filters {
+   @include flexbox();
+   flex-wrap: wrap;
+
+   &__item {
+      padding: .7rem;
+   }
+
+   &__btn {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-align: center;
+   }
+ }
+
+ @keyframes loader {
+   0% {
+     top: 4px;
+     height: 32px;
+   }
+   50%, 100% {
+     top: 12px;
+     height: 16px;
+   }
+ }
