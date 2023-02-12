@@ -4,7 +4,6 @@ import Chart from './../containers/Chart';
 
 const SinglePage = () => {
    const {id} = useParams();
-   const currentDate = new Date()
 
    return (
       <>
